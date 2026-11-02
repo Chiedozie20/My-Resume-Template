@@ -1,0 +1,173 @@
+% ======================================================================
+%  main.tex defines the structure in terms of reusable commands.
+%
+%  To edit the contents, set the \input line to a "particulars" file,
+%  containing the actuall information.
+%
+%  You can create multiple particulars files, one for each role / industry / company you want to target.
+%  TO TARGET A DIFFERENT ROLE / INDUSTRY / COMPANY:
+%
+%  Based on: https://github.com/sb2nov/resume, https://github.com/jakegut/resume (MIT)
+   
+% ======================================================================
+
+\documentclass[letterpaper,11pt]{article}
+
+%%% CHOOSE YOUR CONTENT FILE (one per role / industry / company) %%%
+\input{particulars/hardware}
+
+% ----------------------------------------------------------------------
+%  Packages
+% ----------------------------------------------------------------------
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\usepackage{fontawesome5}
+\usepackage{multicol}
+\setlength{\multicolsep}{-3.0pt}
+\setlength{\columnsep}{-1pt}
+\input{glyphtounicode}
+
+% ----------------------------------------------------------------------
+%  Font options (pick a family and uncomment to activate)
+% ----------------------------------------------------------------------
+% sans-serif
+% \usepackage[sfdefault]{FiraSans}
+% \usepackage[sfdefault]{roboto}
+% \usepackage[sfdefault]{noto-sans}
+% \usepackage[default]{sourcesanspro}
+% serif
+% \usepackage{CormorantGaramond}
+% \usepackage{charter}
+
+% ----------------------------------------------------------------------
+%  Page setup
+% ----------------------------------------------------------------------
+\pagestyle{fancy}
+\fancyhf{} % clear all header and footer fields
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.6in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1.19in}
+\addtolength{\topmargin}{-.7in}
+\addtolength{\textheight}{1.4in}
+
+\urlstyle{same}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% ----------------------------------------------------------------------
+%  Section formatting
+% ----------------------------------------------------------------------
+\titleformat{\section}{
+    \vspace{-4pt}\scshape\raggedright\large\bfseries
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+
+% Make the generated PDF machine readable / ATS-parsable
+\pdfgentounicode=1
+
+% ----------------------------------------------------------------------
+%  Reusable rendering commands
+% ----------------------------------------------------------------------
+
+% One bullet point.
+\newcommand{\resumeItem}[1]{
+    \item\small{
+        {#1 \vspace{-2pt}}
+    }
+}
+
+% A two-line heading: bold line on top, italic line underneath.
+%   #1 = left bold    (role / school / project title)
+%   #2 = right bold   (dates)
+%   #3 = left italic  (company / course)
+%   #4 = right italic (location)
+\newcommand{\resumeSubheading}[4]{
+    \vspace{-2pt}\item
+        \begin{tabular*}{1.0\textwidth}[t]{l@{\extracolsep{\fill}}r}
+            \textbf{#1} & \textbf{\small #2} \\
+            \textit{\small#3} & \textit{\small #4} \\
+        \end{tabular*}\vspace{-7pt}
+}
+
+% A single-line heading (used for projects): bold title left, date right.
+\newcommand{\resumeProjectHeading}[2]{
+        \item
+        \begin{tabular*}{1.001\textwidth}{l@{\extracolsep{\fill}}r}
+            \small#1 & \textbf{\small #2}\\
+        \end{tabular*}\vspace{-7pt}
+}
+
+% Bullet styling
+\renewcommand\labelitemi{$\vcenter{\hbox{\tiny$\bullet$}}$}
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+
+% List environments
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.0in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+% ----------------------------------------------------------------------
+%  Header (name + contact details)
+% ----------------------------------------------------------------------
+\def\titlesection{
+\begin{center}
+        {\Huge \scshape \firstname \ \lastname} \\ \vspace{1pt}
+        \small \raisebox{-0.1\height}\faPhone\ \phone ~ \href{mailto:\email}{\raisebox{-0.2\height}\faEnvelope\  \underline{\email}} \\
+        \href{\linkedin}{\raisebox{-0.2\height}\faLinkedin\ \underline{\linkedin}}  ~
+        %\href{\github}{\raisebox{-0.2\height}\faGithub\ \underline{\github}}
+        \vspace{-8pt}
+\end{center}
+}
+
+% ======================================================================
+%  DOCUMENT BODY
+% ----------------------------------------------------------------------
+%  The document body defines the order of the sections.
+%  Add or reorder sections as you see fit. 
+% ======================================================================
+\begin{document}
+\titlesection
+
+% Uncomment \summaryContent to show a summary paragraph above Education.
+% \summaryContent
+
+%----------- EDUCATION -----------
+\section{Education}
+\resumeSubHeadingListStart
+    \educationEntries
+\resumeSubHeadingListEnd
+
+%----------- SKILLS -----------
+\section{Skills}
+\skillsContent
+
+%----------- EXPERIENCE -----------
+\section{Experience}
+\resumeSubHeadingListStart
+    \experienceEntries
+\resumeSubHeadingListEnd
+
+%----------- PROJECTS -----------
+\section{Projects}
+\vspace{-5pt}
+\resumeSubHeadingListStart
+    \projectsEntries
+\resumeSubHeadingListEnd
+
+\end{document}

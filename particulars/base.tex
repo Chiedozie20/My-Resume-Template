@@ -1,0 +1,130 @@
+% ======================================================================
+%  particulars/base.tex — CONTENT for the base / default resume
+% ----------------------------------------------------------------------
+%  This file only defines content macros; it does no formatting. main.tex
+%  renders these macros into the final layout.
+%
+%  To make a new variant (e.g. for a different industry or company):
+%    1. Copy this file to a new name, e.g. particulars/swe.tex
+%    2. Edit the content below.
+%    3. Point main.tex's \input line at your new file.
+%
+%  The macros expected by main.tex are:
+%    \firstname, \lastname, \email, \linkedin, \phone   (header)
+%    \summaryContent   (optional - shown only if uncommented in main.tex)
+%    \skillsContent    (Skills section)
+%    \educationEntries (Education section)
+%    \experienceEntries(Experience section)
+%    \projectsEntries  (Projects section)
+% ======================================================================
+
+% ----------------------------------------------------------------------
+%  Personal details
+% ----------------------------------------------------------------------
+\def\firstname{Chiedozie}
+\def\lastname{Ihebuzor}
+\def\email{your.email@domain.com}
+\def\linkedin{www.linkedin.com/in/chiedozie-ihebuzor}
+\def\phone{+44 1234 56789}
+
+% ----------------------------------------------------------------------
+%  Summary (optional)
+% ----------------------------------------------------------------------
+\def\summaryContent{
+\section{Summary}
+Passionate, hard-working engineer with a love for learning. Eager to take responsibility and build solutions that make a real impact within the team and company. Uses data to guide priorities and decisions, and leverages strong communication skills to learn from other teams and share insights across the organisation.}
+
+% ----------------------------------------------------------------------
+%  Skills
+% ----------------------------------------------------------------------
+\def\skillsContent{
+\begin{flushleft}
+    SystemVerilog \textbar\ 
+    C++ \textbar\ 
+    Python \textbar\ 
+    Matlab \textbar\
+    FPGAs \textbar\ 
+    Cadence \textbar\
+    Vivado \textbar\
+    Git \textbar\ 
+    Linux \textbar\ 
+    Bash \textbar\ 
+    Cocotb \textbar\  
+    CMake 
+\end{flushleft}
+}
+
+% ----------------------------------------------------------------------
+%  Education
+% ----------------------------------------------------------------------
+%  Each entry: \resumeSubheading{school}{dates}{course, grade}{} followed
+%  by an optional bullet list.
+\def\educationEntries{
+    \resumeSubheading{Imperial College London}{October 2022 -- June 2026}
+        {Electrical and Electronic Engineering, Current Grade: First Class Honours}{}
+    \resumeItemListStart
+        \resumeItem{Key Modules: Circuits and Systems, Embedded Systems, Digital Signal Processing, Finance \& Financial Management, Computer Architecture, Machine Learning, Deep Learning, Digital VLSI, Spanish.}
+        \resumeItem{Societies: Robotics Society, Live Music Society (Guitar Technician), Skateboarding, Cheerleading, Gospel Choir.}
+    \resumeItemListEnd
+
+    \resumeSubheading{King Edward IV College}{September 2020 -- May 2022}
+        {A-Levels, Physics (A*), Computer Science (A*), Maths (A*), AS Further Maths (A)}{}
+}
+
+% ----------------------------------------------------------------------
+%  Experience
+% ----------------------------------------------------------------------
+%  Each entry: \resumeSubheading{role}{dates}{company}{location} followed
+%  by a bullet list of highlights.
+\def\experienceEntries{
+    \resumeSubheading{Quantitative FPGA Technology Placement}{Mar 2025 -- Sept 2025}{Qube Research \& Technologies}{London}
+    \resumeItemListStart
+        \resumeItem{Designed a high-throughput, low-latency ML inference engine on FPGA to accelerate and up-scale existing software trading decision model.}
+        \resumeItem{Created randomly generated and self-verified hardware unit tests using cocotb, and software to FPGA tests in C++/G-test, integrated into CI/CD pipeline}
+        \resumeItem{Collaborated across quantitative development, research and infrastructure teams to migrate and optimise the trading model for FPGA deployment.}
+        \resumeItem{Optimised C++ API to write model features to FPGA over low-latency network card efficiently.}
+        \resumeItem{Parallelised team’s hardware unit simulation CI with Python script, managing licences across multiple hosts and processes, reducing max runtime by 8x.}
+    \resumeItemListEnd
+    \resumeSubheading{Quantitative Infrastructure Technology Intern}{Jun 2024 -- Sept 2024}{Qube Research \& Technologies}{London}
+    \resumeItemListStart
+        \resumeItem{Developed terminal-based C++ monitoring tool for L3 cache performance of trading and market access systems.}
+        \resumeItem{Simplified company-wide cache policy allocation process with a terminal UI, reducing set-up errors}
+        \resumeItem{Automated FPGA diagnostics logging by parsing hardware register maps and generating C++ access code via templating.}
+    \resumeItemListEnd
+    \resumeSubheading{Research Intern}{Aug 2023 -- Sept 2023}{Imperial College London - Department of Bioengineering}{London}
+    \resumeItemListStart
+        \resumeItem{Designed and developed a modular arcade platform to support game-based science outreach programs.}
+        \resumeItem{Produced detailed documentation and Fusion 360 CAD models for ease of use by other researchers.}
+    \resumeItemListEnd
+    \resumeSubheading{Private Tutor}{Sept 2022 -- Present}{Self-Employed}{Remote}
+    \resumeItemListStart
+        \resumeItem{Delivered tailored tutoring in A-Level Mathematics and Physics to students to students aiming for top grades.}
+    \resumeItemListEnd
+}
+
+% ----------------------------------------------------------------------
+%  Projects
+% ----------------------------------------------------------------------
+%  Each entry: \resumeProjectHeading{\textbf{title}}{} followed by a bullet
+%  list, then a small negative \vspace to tighten the gap before the next
+%  project.
+\def\projectsEntries{
+    \resumeProjectHeading{\textbf{FPGA CORDIC Accelerator}}{}
+    \resumeItemListStart
+        \resumeItem{Implemented an unrolled, pipelined CORDIC module on an Altera FPGA to accelerate trigonometric evaluations.}
+        \resumeItem{Benchmarked the module against standard C libraries to show significant speedups in calculations.}
+    \resumeItemListEnd
+    \vspace{-13pt}
+    \resumeProjectHeading{\textbf{Skateboarding Data Tracker}}{}
+    \resumeItemListStart
+        \resumeItem{Wrote real-time trick detection algorithm using accelerometer, gyroscope, and ultrasonic sensor data over I\textsuperscript{2}C.}
+        \resumeItem{Streamed motion analytics to Firebase and displayed data on a custom front-end dashboard.}
+    \resumeItemListEnd
+    \vspace{-10pt}
+    \resumeProjectHeading{\textbf{Rubik’s Cube Solver}}{}
+    \resumeItemListStart
+        \resumeItem{Implemented a solving algorithm in Python, featuring an interactive 3D visualization with real-time mouse control.}
+        \resumeItem{Used OpenCV to import a user’s physical cube state for automated step-by-step solving.}
+    \resumeItemListEnd
+    \vspace{-10pt}
+}
